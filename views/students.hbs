@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+        <br>
+        <main class="sec-background">
+            <h2>Students
+                <a href="/studentsadd" class="btn btn-success float-right">Add New Student</a>
+            </h2>
+        </main>
+        <br />
+        <main class="sec-background stlist">
+            <div class="table-responsive ">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Student Num</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>TA</th>
+                            <th>Status</th>
+                            <th>Course ID</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {{#each student}}
+                        <tr>
+                            <td> <a href="/students/{{studentNum}}"> {{studentNum}} </a> </td>
+                            <td> <a href="/students/{{studentNum}}"> {{firstName}} {{lastName}} </a> </td>
+                            <td> <a href="mailto:{{email}}">{{email}}</a> </td>
+                            <td>{{addressStreet}} <br> {{addressCity}} {{addressState}} {{addressPostal}} </td>
+                            <td>{{#if TA}}Yes {{else}} No {{/if}}</td>
+                            <td>{{status}}</td>
+                            <td> <a href="/students/course={{course}}"> {{course}} </a> </td>
+                            <td><a href="/student/delete/{{studentNum}}" class="btn btn-sm btn-danger">remove</a>
+                       
+
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+
+    </div>
+    {{#unless students}}
+    <div class="col-md-12 text-center">
+        <strong>{{message}}</strong>
+    </div>
+    {{/unless}}
+    </main>
+</div>
