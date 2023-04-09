@@ -187,7 +187,7 @@ app.get('/students/:num', (req, res) => {
 
 
 app.get('/courses/add', (req, res) => {
-  res.render('addCourse')
+  res.render('addcourse')
 })
 
 
