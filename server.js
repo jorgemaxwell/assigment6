@@ -184,9 +184,6 @@ app.get('/students/:num', (req, res) => {
     });
 })
 
-app.get('*', (req, res) => {
-  res.status(404).send('Error 404 - page not found');
-});
 
 
 app.get('/courses/add', (req, res) => {
@@ -279,7 +276,7 @@ app.get('/students/course=:value', (req, res) => {
 
 
 app.get("/student/delete/:num", (req, res) => {
-  collegeData
+  collegedata
     .deleteStudentByNum(req.params.num)
     .then(function () {
       res.redirect("/students");
@@ -288,6 +285,14 @@ app.get("/student/delete/:num", (req, res) => {
       res.status(500).send("Unable to Remove Student/Student Not Found");
     });
 });
+
+
+
+
+app.get('*', (req, res) => {
+  res.status(404).send('Error 404 - page not found');
+});
+
 
 
 app.listen(HTTP_PORT, () => {
